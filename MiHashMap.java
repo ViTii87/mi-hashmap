@@ -72,11 +72,7 @@ public class MiHashMap
      * Devuelve true si el mapa no contiene elementos.
      */
     public boolean isEmpty(){
-        boolean vacio = true;
-        if(claves.length != 0){
-            vacio = false;
-        }
-        return vacio;
+        return claves.length == 0;
     }
 
     /**
@@ -121,5 +117,12 @@ public class MiHashMap
     public void clear(){
         claves = new String[0];
         valores = new int[0];
+    }
+    
+    /**
+     * Devuelve true si el mapa contiene la clave dada.
+     */
+    public boolean containsKey(String clave){
+        return get(clave) != -1;
     }
 }
