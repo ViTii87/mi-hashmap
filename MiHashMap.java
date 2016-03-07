@@ -20,5 +20,34 @@ public class MiHashMap
         this.valores = new int[0]; 
     }
 
- 
+    /**
+     * Asocia el valor especificado con la clave especificada. Si la clave existía, entonces 
+     * sobreescribe su valor y devuelve el valor antiguo. Si no existía devuelve -1.
+     */   
+    public int put(String clave, int valor){
+        boolean encontrado = false;
+        int antiguoValor = -1;
+        int i = 0;
+        while(i < claves.length && !encontrado){
+            if(claves[i].equals(clave)){
+                antiguoValor = valores[i];
+                valores[i] = valor;
+                encontrado = true;
+            }
+            i++;
+        }
+        if(!encontrado){
+            String[] auxClav = new String[claves.length + 1];
+            int[] auxVal = new int[valores.length + 1];
+            for(int x = 0; x < claves.length; x++){
+                auxClav[x] = claves[x];
+                auxVal[x] = valores[x];
+            }
+            claves = auxClav;
+            valores = auxVal;
+            claves[claves.length-1] = clave;
+            valores[valores.length-1] = valor;
+        }
+        return antiguoValor;    
+    }
 }
