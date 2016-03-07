@@ -50,7 +50,7 @@ public class MiHashMap
         }
         return antiguoValor;    
     }
-    
+
     /**
      * Devuelve el valor asociado con la clave especificada o -1 en caso de que la clave no exista.
      */
@@ -67,7 +67,7 @@ public class MiHashMap
         }
         return valor;
     }
-    
+
     /**
      * Devuelve true si el mapa no contiene elementos.
      */
@@ -78,11 +78,40 @@ public class MiHashMap
         }
         return vacio;
     }
-    
+
     /**
      * Devuelve el número de elementos del mapa.
      */
     public int size(){
         return claves.length;
+    }
+
+    /**
+     * elimina del mapa el elemento con la clave dada y devuelve su valor. Si no hay esa clave en el mapa devuelve -1.
+     */
+    public int remove(String clave){
+        int valor = -1;
+        if(size()!=0){
+            String[] auxClav = new String[claves.length - 1];
+            int[] auxVal = new int[valores.length - 1];
+            int i = 0;
+            int auxIndex = 0;
+            while(i < claves.length){
+                if(claves[i].equals(clave))
+                {
+                    valor = valores[i];
+                }
+                else
+                {
+                    auxClav[auxIndex] = claves[i];
+                    auxVal[auxIndex] = valores[i];
+                    auxIndex++;
+                }
+                i++;
+            }
+            claves = auxClav;
+            valores = auxVal;
+        }
+        return valor;
     }
 }
