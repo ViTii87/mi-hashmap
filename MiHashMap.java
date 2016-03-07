@@ -110,7 +110,7 @@ public class MiHashMap
         }
         return valor;
     }
-    
+
     /**
      * vacía el mapa.
      */
@@ -118,11 +118,25 @@ public class MiHashMap
         claves = new String[0];
         valores = new int[0];
     }
-    
+
     /**
      * Devuelve true si el mapa contiene la clave dada.
      */
     public boolean containsKey(String clave){
         return get(clave) != -1;
+    }
+
+    /**
+     * Devuelve true si el mapa contiene el valor dado.
+     */
+    public boolean containsValue(int valor){
+        boolean encontrado = false;
+        int i = 0;
+        while(i < valores.length && !encontrado){
+            if(valores[i] == valor){
+                encontrado = true;
+            }
+        }
+        return encontrado;
     }
 }
