@@ -114,4 +114,12 @@ public class MiHashMap
         }
         return valor;
     }
+    
+    /**
+     * vacía el mapa.
+     */
+    public void clear(){
+        claves = new String[0];
+        valores = new int[0];
+    }
 }
