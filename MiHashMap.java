@@ -50,4 +50,21 @@ public class MiHashMap
         }
         return antiguoValor;    
     }
+    
+    /**
+     * Devuelve el valor asociado con la clave especificada o -1 en caso de que la clave no exista.
+     */
+    public int get(String clave){
+        int valor = -1;
+        boolean encontrado = false;
+        int i = 0;
+        while(i < claves.length && !encontrado){
+            if(claves[i].equals(clave)){
+                valor = valores[i];
+                encontrado = true;
+            }
+            i++;
+        }
+        return valor;
+    }
 }
