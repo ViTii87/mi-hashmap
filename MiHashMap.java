@@ -87,7 +87,7 @@ public class MiHashMap
      */
     public int remove(String clave){
         int valor = -1;
-        if(size()!=0){
+        if(containsKey(clave)){
             String[] auxClav = new String[claves.length - 1];
             int[] auxVal = new int[valores.length - 1];
             int i = 0;
@@ -136,6 +136,7 @@ public class MiHashMap
             if(valores[i] == valor){
                 encontrado = true;
             }
+            i++;
         }
         return encontrado;
     }
